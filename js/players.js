@@ -25,7 +25,7 @@ var addPlayerFunc = function() {
 
   addingNewPlayer = true;
   paintNewPlayer(playeradd[0].value);
-  playeradd[0].value = "";
+  playeradd.val("");
   playeradd.blur();
   addingNewPlayer = false;
 }

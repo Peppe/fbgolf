@@ -16,7 +16,7 @@ var addCourseFunc = function() {
 
   addingNewCourse = true;
   paintNewCourse(courseadd[0].value);
-  courseadd[0].value = "";
+  courseadd.val("");
   courseadd.blur();
   addingNewCourse = false;
 }
