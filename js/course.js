@@ -37,3 +37,5 @@ $('#courseselect').on("click", ".course", function(e) {
 paintNewCourse("Lausteen frisbeegolfpuisto");
 paintNewCourse("Urheilupuisto");
 paintNewCourse("Patokosken Frisbeegolfrata");
+
+$('#button-courseplayers').on('click', {view: 'view-players'}, switchView );

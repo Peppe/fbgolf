@@ -106,3 +106,9 @@ body {
   top: .5em;
   font-size: 20pt;
 }
+
+#button-courseplayers {
+  background-color: #eee;
+  padding: 5pt;
+  position: relative;
+}
