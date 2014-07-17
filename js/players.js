@@ -46,5 +46,5 @@ paintNewPlayer("Wöffi");
 paintNewPlayer("Jozpe");
 paintNewPlayer("Sanqu");
 
-$('#button-selectcourse').on('click', {view: 'view-helloworld'}, switchView );
-$('#button-goback').on('click', {view: 'view-playerselection'}, switchView );
+$('#button-selectcourse').on('click', {view: 'view-course'}, switchView );
+$('#button-goback').on('click', {view: 'view-players'}, switchView );

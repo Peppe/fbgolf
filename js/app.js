@@ -8,13 +8,12 @@ $('html').on('touchmove', function(e){
   e.preventDefault();
 });
 
-var currentView = '#view-playerselection';
+var currentView = '#view-players';
 $(currentView).css('display', 'block');
 
 var switchView = function(event) {
-  var name = '#' + event.data.view;
   if (event.data.view == "") return;
-  console.log('data: ' + name);
+  var name = '#' + event.data.view;
   $(currentView).css('display', 'none');
   $(name).css('display', 'block');
   currentView = name;
