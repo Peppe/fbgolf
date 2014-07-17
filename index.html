@@ -15,21 +15,29 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300|Indie+Flower|Hammersmith+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div id="playerselect">
-    <h1 class="normaltext">Valitse pelaajat</h1>
-    <div id="playerlist" class="scrollable">
+  <div class="view" id="view-playerselection">
+    <div id="playerselect">
+      <h1 class="normaltext">Valitse pelaajat</h1>
+      <div id="playerlist" class="scrollable">
+      </div>
+      <div id="playeradd">
+        <input type="text" placeholder="Lisää uusi pelaaja">
+      </div>
     </div>
-    <div id="playeradd">
-      <input type="text" placeholder="Lisää uusi pelaaja">
+
+    <div id="selectcourse">
+      <div id="playercount">0 pelaajaa</div>
+      <div id="button-selectcourse">Valitse rata &raquo;</div>
     </div>
   </div>
 
-  <div id="selectcourse">
-    <div id="playercount">0 pelaajaa</div>
-    <div id="selectcourselabel">Valitse rata &raquo;</div>
+  <div class="view" id="view-helloworld">
+    TOIMIIII!!!!
+    <div id="button-goback">&laquo; Takaisin</div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/playerselection.js"></script>
 </body>
 </html>
