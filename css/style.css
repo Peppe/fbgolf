@@ -8,8 +8,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 /* web fonts */
 #playeradd input::-webkit-input-placeholder,
 #playeradd input,
-#courseadd input::-webkit-input-placeholder,
-#courseadd input,
 .title {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
@@ -55,6 +53,19 @@ body {
   white-space: nowrap;
 }
 
+#courseselect .course {
+  padding-bottom: 5pt;
+  font-size: 19pt;
+}
+
+#courseselect .course .details {
+  font-family: 'Hammersmith One', sans-serif;
+  font-size: 12pt;
+  line-height: 12pt;
+  margin-top: -7pt;
+  margin-left: 2pt;
+}
+
 #playerlist, #courselist {
   max-height: 100%;
 }
@@ -66,8 +77,7 @@ body {
   color: black;
 }
 
-#playeradd input,
-#courseadd input {
+#playeradd input {
   width: 100%;
   font-size: 24pt;
   box-sizing: border-box;
@@ -76,8 +86,7 @@ body {
   text-indent: .2em;
 }
 
-#playeradd input:focus + #playeraddbutton,
-#courseadd input:focus + #courseaddbutton {
+#playeradd input:focus + #playeraddbutton {
   display: initial;
 }
 

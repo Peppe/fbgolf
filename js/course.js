@@ -1,31 +1,11 @@
-var paintNewCourse = function(name) {
-  if (name == "") return;
-  var course = $("<div class='course'>"+name+"</div>");
-  $("#courselist").append(course);
+var paintNewCourse = function(course) {
+  var nameDiv = "<div class='name'>"+course.name+"</div>";
+  var parSum = course.pars.reduce(function(a,b){return a+b});
+  var detailsDiv = "<div class='details'>"+course.city+" - "+course.pars.length+" väylää, par "+parSum+"</div>";
+  $("#courselist").append("<div class='course'>"+nameDiv+detailsDiv+"</div>");
 }
-
-var courseadd = $('#courseadd input');
-
-// blur might cause an infinite loop, so we need a flag.
-var addingNewCourse = false;
-var addCourseFunc = function() {
-  if (addingNewCourse) {
-    addingNewCourse = false;
-    return;
-  }
-
-  addingNewCourse = true;
-  paintNewCourse(courseadd[0].value);
-  courseadd.val("");
-  courseadd.blur();
-  addingNewCourse = false;
-}
-
-courseadd.blur(addCourseFunc);
-courseadd.keypress(function(e){if (e.which==13) addCourseFunc()});
 
 var course = null;
-
 $('#courseselect').on("click", ".course", function(e) {
   $(course).removeClass("selected");
   if (this != course) {
@@ -38,8 +18,20 @@ $('#courseselect').on("click", ".course", function(e) {
 });
 
 // init
-paintNewCourse("Lausteen frisbeegolfpuisto");
-paintNewCourse("Urheilupuisto");
-paintNewCourse("Patokosken Frisbeegolfrata");
+paintNewCourse({
+  name: "Lausteen frisbeegolfpuisto",
+  city: "Turku",
+  pars: [3,3,3,3,3,4,3,4,4,3,4,3,3,3,4,4,3,3,4,3,3,3,3]
+});
+paintNewCourse({
+  name: "Urheilupuisto",
+  city: "Turku",
+  pars: [3,3,3,3,3,3,3,3,3]
+});
+paintNewCourse({
+  name: "Patokosken Frisbeegolfrata",
+  city: "Rovaniemi",
+  pars: [3,3,3,3,3,3,3,3,3]
+});
 
 $('#button-courseplayers').on('click', {view: 'view-players'}, switchView );
