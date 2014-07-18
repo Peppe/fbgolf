@@ -8,6 +8,9 @@ $('html').on('touchmove', function(e){
   e.preventDefault();
 });
 
+// enable fastclick
+FastClick.attach(document.body);
+
 var currentView = '#view-players';
 $(currentView).css('display', 'block');
 
