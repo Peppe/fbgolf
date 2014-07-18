@@ -81,7 +81,7 @@ body {
   display: initial;
 }
 
-#selectcourse {
+#button-selectcourse {
   position: absolute;
   bottom: 0;
   font-family: 'Open Sans', sans-serif;
@@ -92,6 +92,7 @@ body {
   height: 4em;
   opacity: 0;
   transition: all .5s ease-out;
+  cursor: pointer;
 }
 
 #playercount {
@@ -100,7 +101,7 @@ body {
   left: 1em;
 }
 
-#button-selectcourse {
+#label-selectcourse {
   position: absolute;
   right: 1em;
   top: .5em;
@@ -111,4 +112,5 @@ body {
   background-color: #eee;
   padding: 5pt;
   position: relative;
+  cursor: pointer;
 }

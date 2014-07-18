@@ -34,7 +34,7 @@ $('#playerselect').on("click", ".player", function(e) {
   var count = players.length;
 
   // update the state of the "next view" button
-  $('#selectcourse').css("opacity", count===0?"0":"1");
+  $('#button-selectcourse').css("opacity", count===0?"0":"1");
   if (count > 0) {
     $('#playercount').text(count+" pelaaja"+(count!==1?"a":""));
   }
