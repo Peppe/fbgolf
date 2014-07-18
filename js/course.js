@@ -31,6 +31,8 @@ $('#courseselect').on("click", ".course", function(e) {
   if (this != course) {
     $(this).addClass("selected");
     course = this;
+  } else {
+    course = null;
   }
   e.preventDefault();
 });
