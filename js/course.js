@@ -18,20 +18,24 @@ $('#courseselect').on("click", ".course", function(e) {
 });
 
 // init
-paintNewCourse({
-  name: "Lausteen frisbeegolfpuisto",
-  city: "Turku",
-  pars: [3,3,3,3,3,4,3,4,4,3,4,3,3,3,4,4,3,3,4,3,3,3,3]
-});
-paintNewCourse({
-  name: "Urheilupuisto",
-  city: "Turku",
-  pars: [3,3,3,3,3,3,3,3,3]
-});
-paintNewCourse({
-  name: "Patokosken Frisbeegolfrata",
-  city: "Rovaniemi",
-  pars: [3,3,3,3,3,3,3,3,3]
-});
+var initCourseView = function(){
+  var count = game.players.length;
 
-$('#button-courseplayers').on('click', {view: 'view-players'}, switchView );
+  // update players in the course selection view
+  var coursePlayersString = null;
+  if(game.players.length == 1){
+    coursePlayersString = "1 pelaaja";
+  } else {
+    coursePlayersString = game.players.length + " pelaajaa";
+  }
+  $('#button-courseplayers').text(coursePlayersString + ": " + game.players.join(", "));
+  
+  $("#courselist").empty();
+  courses.forEach(function(course) {
+    paintNewCourse(course);
+  });
+};
+
+$('#button-courseplayers').click(function(){
+    switchView('view-players');
+});
