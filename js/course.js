@@ -11,8 +11,10 @@ $('#courseselect').on("click", ".course", function(e) {
   if (this != course) {
     $(this).addClass("selected");
     course = this;
+    $('#button-startgame').css("opacity", "1");
   } else {
     course = null;
+    $('#button-startgame').css("opacity", "0");
   }
   e.preventDefault();
 });
@@ -38,4 +40,9 @@ var initCourseView = function(){
 
 $('#button-courseplayers').click(function(){
     switchView('view-players');
+});
+
+$('#button-startgame').click(function(){
+    switchView('view-game');
+    initCourseView();
 });
