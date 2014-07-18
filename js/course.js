@@ -16,7 +16,7 @@ var addCourseFunc = function() {
 
   addingNewCourse = true;
   paintNewCourse(courseadd[0].value);
-  courseadd[0].value = "";
+  courseadd.val("");
   courseadd.blur();
   addingNewCourse = false;
 }
@@ -28,8 +28,12 @@ var course = null;
 
 $('#courseselect').on("click", ".course", function(e) {
   $(course).removeClass("selected");
-  $(this).addClass("selected");
-  course = this;
+  if (this != course) {
+    $(this).addClass("selected");
+    course = this;
+  } else {
+    course = null;
+  }
   e.preventDefault();
 });
 
@@ -37,3 +41,5 @@ $('#courseselect').on("click", ".course", function(e) {
 paintNewCourse("Lausteen frisbeegolfpuisto");
 paintNewCourse("Urheilupuisto");
 paintNewCourse("Patokosken Frisbeegolfrata");
+
+$('#button-courseplayers').on('click', {view: 'view-players'}, switchView );

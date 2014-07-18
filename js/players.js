@@ -4,15 +4,6 @@ var paintNewPlayer = function(name) {
   $("#playerlist").append(player);
 }
 
-var updateCourseSelectionWidget = function() {
-  var count = $('#playerlist .selected').size();
-  $('#selectcourse').css("opacity", count===0?"0":"1");
-
-  if (count > 0) {
-    $('#playercount').text(count+" pelaaja"+(count!==1?"a":""));
-  }
-}
-
 var playeradd = $('#playeradd input');
 
 // blur might cause an infinite loop, so we need a flag.
@@ -25,7 +16,7 @@ var addPlayerFunc = function() {
 
   addingNewPlayer = true;
   paintNewPlayer(playeradd[0].value);
-  playeradd[0].value = "";
+  playeradd.val("");
   playeradd.blur();
   addingNewPlayer = false;
 }
@@ -35,7 +26,22 @@ playeradd.keypress(function(e){if (e.which==13) addPlayerFunc()});
 
 $('#playerselect').on("click", ".player", function(e) {
   $(this).toggleClass("selected");
-  updateCourseSelectionWidget();
+
+  var players = [];
+  $('#playerlist .selected').each(function(i, elem) {
+    players.push($(elem).text());
+  });
+  var count = players.length;
+
+  // update the state of the "next view" button
+  $('#button-selectcourse').css("opacity", count===0?"0":"1");
+  if (count > 0) {
+    $('#playercount').text(count+" pelaaja"+(count!==1?"a":""));
+  }
+
+  // update players in the course selection view
+  $('#button-courseplayers').text(count+" pelaaja"+(count!==1?"a":"") + ": "+players.join(", "));
+
   e.preventDefault();
 });
 
@@ -47,4 +53,3 @@ paintNewPlayer("Jozpe");
 paintNewPlayer("Sanqu");
 
 $('#button-selectcourse').on('click', {view: 'view-course'}, switchView );
-$('#button-goback').on('click', {view: 'view-players'}, switchView );
