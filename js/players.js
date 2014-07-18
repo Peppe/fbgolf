@@ -32,7 +32,7 @@ $('#playerselect').on("click", ".player", function(e) {
     players.push($(elem).text());
   });
   var count = players.length;
-
+  game.players = players;
   // update the state of the "next view" button
   $('#button-selectcourse').css("opacity", count===0?"0":"1");
   if (count > 0) {
@@ -45,11 +45,13 @@ $('#playerselect').on("click", ".player", function(e) {
   e.preventDefault();
 });
 
+var initPlayerView = function(){
+  players.forEach(function(player) {
+    paintNewPlayer(player);
+  });
+};
 
-// init
-paintNewPlayer("Aku");
-paintNewPlayer("Wöffi");
-paintNewPlayer("Jozpe");
-paintNewPlayer("Sanqu");
-
-$('#button-selectcourse').on('click', {view: 'view-course'}, switchView );
+$('#button-selectcourse').click(function(){
+    switchView('view-course');
+    initCourseView();
+});

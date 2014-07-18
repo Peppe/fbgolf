@@ -18,20 +18,13 @@ $('#courseselect').on("click", ".course", function(e) {
 });
 
 // init
-paintNewCourse({
-  name: "Lausteen frisbeegolfpuisto",
-  city: "Turku",
-  pars: [3,3,3,3,3,4,3,4,4,3,4,3,3,3,4,4,3,3,4,3,3,3,3]
-});
-paintNewCourse({
-  name: "Urheilupuisto",
-  city: "Turku",
-  pars: [3,3,3,3,3,3,3,3,3]
-});
-paintNewCourse({
-  name: "Patokosken Frisbeegolfrata",
-  city: "Rovaniemi",
-  pars: [3,3,3,3,3,3,3,3,3]
-});
+var initCourseView = function(){
+  $("#courselist").empty();
+  courses.forEach(function(course) {
+    paintNewCourse(course);
+  });
+};
 
-$('#button-courseplayers').on('click', {view: 'view-players'}, switchView );
+$('#button-courseplayers').click(function(){
+    switchView('view-players');
+});
