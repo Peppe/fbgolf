@@ -1,7 +1,7 @@
 var paintNewCourse = function(course) {
   var nameDiv = "<div class='name'>"+course.name+"</div>";
   var parSum = course.pars.reduce(function(a,b){return a+b});
-  var detailsDiv = "<div class='details'>"+course.city+" - "+course.pars.length+" väylää, par "+parSum+"</div>";
+  var detailsDiv = "<div class='details'><strong>"+course.city+"</strong> - "+course.pars.length+" väylää, par "+parSum+"</div>";
   $("#courselist").append("<div class='course'>"+nameDiv+detailsDiv+"</div>");
 }
 
