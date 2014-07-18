@@ -90,7 +90,8 @@ body b, body strong {
   display: initial;
 }
 
-#button-selectcourse {
+#button-selectcourse,
+#button-startgame {
   position: absolute;
   bottom: 0;
   font-family: 'Open Sans', sans-serif;
@@ -112,7 +113,8 @@ body b, body strong {
   font-weight: 400;
 }
 
-#label-selectcourse {
+#label-selectcourse,
+#label-startgame {
   position: absolute;
   right: 1em;
   top: .5em;
