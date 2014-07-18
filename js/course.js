@@ -28,8 +28,10 @@ var course = null;
 
 $('#courseselect').on("click", ".course", function(e) {
   $(course).removeClass("selected");
-  $(this).addClass("selected");
-  course = this;
+  if (this != course) {
+    $(this).addClass("selected");
+    course = this;
+  }
   e.preventDefault();
 });
 
