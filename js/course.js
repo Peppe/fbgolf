@@ -19,6 +19,17 @@ $('#courseselect').on("click", ".course", function(e) {
 
 // init
 var initCourseView = function(){
+  var count = game.players.length;
+
+  // update players in the course selection view
+  var coursePlayersString = null;
+  if(game.players.length == 1){
+    coursePlayersString = "1 pelaaja";
+  } else {
+    coursePlayersString = game.players.length + " pelaajaa";
+  }
+  $('#button-courseplayers').text(coursePlayersString + ": " + game.players.join(", "));
+  
   $("#courselist").empty();
   courses.forEach(function(course) {
     paintNewCourse(course);

@@ -38,10 +38,6 @@ $('#playerselect').on("click", ".player", function(e) {
   if (count > 0) {
     $('#playercount').text(count+" pelaaja"+(count!==1?"a":""));
   }
-
-  // update players in the course selection view
-  $('#button-courseplayers').text(count+" pelaaja"+(count!==1?"a":"") + ": "+players.join(", "));
-
   e.preventDefault();
 });
 
