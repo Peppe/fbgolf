@@ -40,9 +40,11 @@ var initCourseView = function(){
 
 $('#button-courseplayers').click(function(){
     switchView('view-players');
+    initPlayersView();
+
 });
 
 $('#button-startgame').click(function(){
     switchView('view-game');
-    initCourseView();
+    initGameView();
 });
